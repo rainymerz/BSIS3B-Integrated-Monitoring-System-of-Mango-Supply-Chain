@@ -22,8 +22,8 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #080607 url("../img/1.jpg") top right no-repeat;
-  background-size: 90vh;
+  background: #020103 url("../img/1.jpg") top right no-repeat;
+  background-size: 1000vh;
   left: 0;
   right: 0;
   top: 0;
