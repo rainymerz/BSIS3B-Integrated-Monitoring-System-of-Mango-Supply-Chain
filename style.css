@@ -14,7 +14,7 @@
 body::before {
   content: "";
   position: fixed;
-  background: #080607 url("../img/Homepage.png") top right no-repeat;
+  background: #080607 url("../img/1.jpg") top right no-repeat;
   background-size: 90vh;
   left: 0;
   right: 0;
