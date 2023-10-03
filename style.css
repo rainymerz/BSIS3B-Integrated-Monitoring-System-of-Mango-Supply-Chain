@@ -10,6 +10,18 @@
     background: #fff;
     
   }
+
+body::before {
+  content: "";
+  position: fixed;
+  background: #080607 url("../img/Homepage.png") top right no-repeat;
+  background-size: 90vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+}
   
   nav{
     display: flex;
