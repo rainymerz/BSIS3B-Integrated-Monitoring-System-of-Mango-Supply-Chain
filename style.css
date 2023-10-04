@@ -20,8 +20,8 @@ body {
 body {
    content: "";
   position: fixed;
-  background: url("../img/Farm.png") top right no-repeat;
-  background-size: contain;
+  background: contain;
+  width: 100vh;
   left: 0;
   right: 0;
   top: 0;
