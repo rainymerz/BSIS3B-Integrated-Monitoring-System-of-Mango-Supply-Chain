@@ -14,20 +14,13 @@
 body { 
   font-family: "Open Sans", sans-serif;
   position: relative;
-  background: transparent;
-}
-
-body {
-   content: "";
-  position: fixed;
-  background: url("../img/1.jpg") top right no-repeat;
-  background-size: cover;
   background: contain;
-  width: 100vh;
+  content: "";
+  width: 250vh;
   left: 0;
   right: 0;
   top: 0;
-  height: 100vh;
+  height: 250vh;
   z-index: -1;
 }
   
