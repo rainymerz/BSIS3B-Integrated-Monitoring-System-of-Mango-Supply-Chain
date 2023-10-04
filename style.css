@@ -18,8 +18,17 @@ body {
 }
 
 body {
-  background: url("img/1.jpg");
-  background-size: cover;
+  content: "";
+ position: fixed;
+ background: url("../img/1.jpg") top right no-repeat;
+ background-size: cover;
+ background: contain;
+ width: 100vh;
+ left: 0;
+ right: 0;
+ top: 0;
+ height: 100vh;
+ z-index: -1;
 }
 
 .container img {
