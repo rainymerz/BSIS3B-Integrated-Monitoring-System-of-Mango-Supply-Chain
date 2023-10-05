@@ -18,14 +18,21 @@ body {
 }
 
 body {
-  background-image: url("../img/1.jpg");
+  background-image: url('1.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
-@media (min-width: 1024px) {
-  body::before {
-    background-attachment: fixed;
+  
+  nav{
+    display: flex;
+    width: 84%;
+    margin: auto;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  
   }
 
 .container img {
