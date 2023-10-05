@@ -12,14 +12,10 @@
   }
 
 body { 
+  background-image: url(/img/farm.png);
+  background-size: cover;
   font-family: "Open Sans", sans-serif;
   position: relative;
-  background: transparent;
-}
-
-body {
- background-image: url(/img/farm.png);
- background-size: cover;
 }
 
 .container img {
