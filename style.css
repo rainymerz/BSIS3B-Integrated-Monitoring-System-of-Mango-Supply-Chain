@@ -17,16 +17,11 @@ body {
   background: transparent;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  background:url("../img/1.jpg") top right no-repeat;
-  background-size: 90vh;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 100vh;
-  z-index: -1;
+body {
+  background-image: url("../img/1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .container img {
