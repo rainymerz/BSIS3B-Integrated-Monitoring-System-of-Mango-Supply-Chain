@@ -48,24 +48,25 @@ ul {
   float: right;
   padding: 15px;
 }
-  
+
+ul li a:hover{
+  background-color:#f8aa18;
+  color: #000000;
+}
  ul li a {
   text-decoration: none;
   color: #000000;
   padding: 5px 20px;
   border: 2px solid transparent;
 }
-  
+
 ul li {
   display: inline-block;
   margin-right: 5px;
   padding: 5px;
 }
   
-ul li a:hover{
-    color:orange;
-  }
-  
+
   .detel{
     margin-left: 8%;
     margin-top: 15%;
