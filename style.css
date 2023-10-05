@@ -12,7 +12,12 @@
   }
 
 <style>
- background-image: url("images/Farm.png");
+body {
+  background-image: url('img_farm.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
 </style>
 
 .container img {
