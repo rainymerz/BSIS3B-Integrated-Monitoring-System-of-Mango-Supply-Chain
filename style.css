@@ -81,9 +81,14 @@ ul li {
   margin-right: 5px;
   padding: 5px;
 }
-  
+ul li .active a{
+  color:black;
+  background-color:#f5b031
+}
+
 ul li a:hover{
-    color:orange;
+    color:black;
+    background-color:#f5b031
   }
   
 
