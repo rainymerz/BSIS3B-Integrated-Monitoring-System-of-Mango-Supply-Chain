@@ -71,7 +71,7 @@ ul {
   
 ul li a{
   text-decoration: none;
-  color: #000000;
+  color: #ffffff;
   padding: 100px 20px;
   border: 2px solid transparent;
 }
@@ -81,14 +81,9 @@ ul li {
   margin-right: 5px;
   padding: 5px;
 }
-ul li .active a{
-  color:black;
-  background-color:#f5b031
-}
 
 ul li a:hover{
-    color:black;
-    background-color:#f5b031
+    color:rgb(255, 211, 66);
   }
   
 
