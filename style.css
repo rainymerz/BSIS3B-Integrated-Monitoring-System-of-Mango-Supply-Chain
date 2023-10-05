@@ -23,6 +23,10 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+@media (min-width: 1024px) {
+  body::before {
+    background-attachment: fixed;
+  }
 
 .container img {
   float: left;
