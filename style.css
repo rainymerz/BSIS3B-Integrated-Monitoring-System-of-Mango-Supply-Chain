@@ -10,7 +10,7 @@
     background: #fff;
     
   }
-
+/*cover page*/
 body { 
   font-family: "Open Sans", sans-serif;
   position: relative;
@@ -18,7 +18,7 @@ body {
 }
 
 body {
-  background-image: url('img/1.jpg');
+  background-image: url('img/Farm.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
