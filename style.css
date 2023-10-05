@@ -11,12 +11,9 @@
     
   }
 
-body { 
-  background-image: url(/img/farm.png);
-  background-size: cover;
-  font-family: "Open Sans", sans-serif;
-  position: relative;
-}
+<style>
+ background-image: url("images/Farm.png");
+</style>
 
 .container img {
   float: left;
