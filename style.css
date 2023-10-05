@@ -36,9 +36,9 @@ body {
   }
 
 .container img {
-  float: left;
-  width: 200px;
-  height: auto;
+    width: 200px;
+ 
+    height: 100px;
 } 
 
 h1 {
