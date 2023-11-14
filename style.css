@@ -134,6 +134,7 @@ span{
   text-align: center;
   padding: 100px 0 0 0;
   box-sizing: border-box;
+  color: #fff;
 }
 
 .row:after {
