@@ -38,6 +38,7 @@ nav{
 }
 
 
+
 .container img {
   float: left;
   width: 140px;
@@ -81,9 +82,9 @@ ul li {
   margin-right: 5px;
   padding: 5px;
 }
-
+  
 ul li a:hover{
-    color:rgb(255, 211, 66);
+    color:orange;
   }
   
 
@@ -118,3 +119,25 @@ span{
   background-image: linear-gradient(180deg, rgb(190, 190, 0), rgb(190, 124, 0));
 }
 
+.welcome {
+  text-align: center;
+  margin: 0 auto;
+  padding: 150px 0 0 0;
+  -webkit-text-stroke-width: px;
+  -webkit-text-stroke-color: white;
+  font-size:large;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: 100px 0 0 0;
+  box-sizing: border-box;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
