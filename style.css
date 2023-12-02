@@ -142,3 +142,37 @@ span{
   display: table;
   clear: both;
 }
+
+
+footer{ 
+  justify-content: flex-end;
+  display: flex-end;
+ 
+}
+
+.footerContainer{
+  width: 100%;
+  padding: 70px 30px 20px;
+}
+
+.socialIcons a i{
+  font-size: 2em;
+  color: #000;
+  opacity: 0.9;
+}
+
+.socialIcons a:hover{
+  background-color: #111;
+  transition: 0.5s;
+}
+
+.socialIcons a:hover i{
+  color: white;
+  transition: 0.5s;
+}
+
+
+
+
+
+
