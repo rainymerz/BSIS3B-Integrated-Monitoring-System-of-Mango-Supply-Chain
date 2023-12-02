@@ -103,7 +103,7 @@ span{
   background-color: orange;
   background-image: linear-gradient(180deg, yellow, orange);
   border: none;
-  color: black;
+  color: rgba(0, 0, 0, 0.418);
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -114,6 +114,10 @@ span{
   position: absolute; left: 135px; top:475px;
 }
 
+.button a{
+  color: white;
+  text-decoration: none;
+}
 .button:hover {
   background-color: #a86d00;
   background-image: linear-gradient(180deg, rgb(190, 190, 0), rgb(190, 124, 0));
@@ -125,7 +129,7 @@ span{
   padding: 150px 0 0 0;
   -webkit-text-stroke-width: px;
   -webkit-text-stroke-color: white;
-  font-size:large;
+  font-size: medium;
 }
 
 .column {
@@ -135,12 +139,14 @@ span{
   padding: 100px 0 0 0;
   box-sizing: border-box;
   color: #fff;
+  font-size: small;
 }
 
 .row:after {
   content: "";
   display: table;
   clear: both;
+  padding: 20px 20px;
 }
 
 
