@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mangrowth</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js"></script>
+    <script>
+            const firebaseConfig = {
+  apiKey: "AIzaSyCcSJ3pdn5j_Ix-Vo4l6TVJg5MncrXgjLM",
+  authDomain: "mango-supply-chain.firebaseapp.com",
+  databaseURL: "https://mango-supply-chain-default-rtdb.firebaseio.com",
+  projectId: "mango-supply-chain",
+  storageBucket: "mango-supply-chain.appspot.com",
+  messagingSenderId: "104511646099",
+  appId: "1:104511646099:web:22b2cc79b554f979d5a066"
+};
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.database();
+            $("#loginButton").click(function () {
+                const emails = $("#emailLogin").val();
+                const password = $("#passwordLogin").val();
+
+                const userRef = db.ref("User");
+                userRef.once("value")
+                    .then((snapshot) => {
+                        snapshot.forEach((childSnapshot) => {
+                            const data = childSnapshot.val();
+                            if (data.email === emails && data.password === password) {
+                                console.log("Login successfully, Welcome " + data.firstname + "!");
+                                window.location.href = "customer.html";
+                            }
+
+                        });
+                    })
+                    .catch((error) => {
+                        console.error("Login failed. Please check your credentials.");
+                    });
+                    
+                    
+            });
+
+            $("#loginAdmin").click(function () {
+                const emails = $("#emailLogin").val();
+                const password = $("#passwordLogin").val();
+
+                const adminRef = db.ref("Admin");
+                adminRef.once("value")
+                    .then((snapshot) => {
+                        snapshot.forEach((childSnapshot) => {
+                            const data = childSnapshot.val();
+                            if (data.username === emails && data.password === password) {
+                                console.log("Login successfully, Welcome " + data.username + "!");
+                                window.location.href = "Admin/index.html";
+                            }
+
+                        });
+                    })
+                    .catch((error) => {
+                        console.error("Login failed. Please check your credentials.");
+                    });
+                    
+                    
+            });
+
+        });
+        
+    </script>
+
+
+
+</head>
+<body>
+  
+    <div class="wrapper">
+        <h1>  Welcome to Mangrowth </h1>
+        <div class="input-box">
+          <input type="email" value="" id="emailLogin" placeholder="Email" required>
+          <i class='bx bxs-user'></i>
+        </div>
+
+        
+            <div class="input-box">
+              <input type="password" value="" id="passwordLogin" placeholder="Password" required>
+              <i class='bx bxs-lock-alt'></i> 
+            </div>
+
+          
+
+            <button id="loginButton" class="btn">Login as Customer</button>
+            <button id="loginAdmin" class="btn">Login as Admin</button>
+            <div class="register-link">
+              <p> Don't have an account? <a href="register.html">Register</a></p>
+            </div>
+
+
+    </form>
+    <div class="container">
+    <button class="button" ><a href="index.html">Back</a></button>
+  </div>
+    
+  </div>
+</body>
+</html>

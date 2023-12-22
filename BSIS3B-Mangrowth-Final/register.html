@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+        <title>Mangrowth</title>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js"></script>
+
+    <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyCcSJ3pdn5j_Ix-Vo4l6TVJg5MncrXgjLM",
+          authDomain: "mango-supply-chain.firebaseapp.com",
+          databaseURL: "https://mango-supply-chain-default-rtdb.firebaseio.com",
+          projectId: "mango-supply-chain",
+          storageBucket: "mango-supply-chain.appspot.com",
+          messagingSenderId: "104511646099",
+          appId: "1:104511646099:web:22b2cc79b554f979d5a066"
+        };
+
+    
+            document.addEventListener("DOMContentLoaded", function () {
+                firebase.initializeApp(firebaseConfig);
+                const db = firebase.database();
+
+                $("#addData").click(function () {
+                    var fname = $("#fname").val();
+                    var lname = $("#lname").val();
+                    var uage = $("#uage").val();
+                    var birthdates = $("#birthdates").val();
+                    var genders = $("#genders").val();
+                    var numbers = $("#numbers").val();
+                    var email = $("#email").val();
+                    var password = $("#passwordRegister").val();
+    
+                    db.ref("User/" + fname).set({
+                        firstname: fname,
+                        lastname: lname,
+                        age: uage,
+                        birthday: birthdates,
+                        gender: genders,
+                        phonenumber: numbers,
+                        email: email,
+                        password: password,
+                    })
+                        .then(() => {
+                            console.log("Data successfully written!");
+                            window.location.href = "login.html";
+                        })
+                        .catch((error) => {
+                            console.error("Error writing data: ", error);
+                        });
+                });
+    
+              
+            });
+        </script>
+</head>
+
+<body>
+<div class="wrapper">
+
+        <h1>  Welcome to Mangrowth </h1>
+        <div class="input-box">
+          <input type="text" id="fname" placeholder="First Name">
+          <i class='bx bxs-user'></i>
+        </div>
+
+     
+        
+      <div class="input-box">
+       <input type="text" id="lname" placeholder="Last Name">
+      </div>
+            
+        <div class="input-box">
+          <input type="text" id="uage" placeholder="Age">
+        </div>
+
+        <div class="input-box">
+          <input type="date" id="birthdates" placeholder="Birth Date">
+        </div>
+
+        <div class="input-box">
+         <input type="text" id="genders" placeholder="Gender">
+        </div>
+
+        <div class="input-box">
+         <input type="tel" id="numbers" placeholder="Phone Number">
+        </div>
+
+        <div class="input-box">
+         <input type="email" id="email" placeholder="Email Address">
+        </div>
+
+        <div class="input-box">
+         <input type="password" id="passwordRegister" placeholder="Password">
+        </div>
+
+         <button class="btn" id="addData"> Register </button>
+            
+  
+    <div class="container">
+    <button class="button" ><a href="login.html">Back</a></button>
+  </div>
+
+</div>
+
+</body>
+</html>

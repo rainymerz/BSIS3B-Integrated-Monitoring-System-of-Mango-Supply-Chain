@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>Admin Dashboard Panel</title> 
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js"></script>
+    <script>
+                    const firebaseConfig = {
+        apiKey: "AIzaSyCcSJ3pdn5j_Ix-Vo4l6TVJg5MncrXgjLM",
+        authDomain: "mango-supply-chain.firebaseapp.com",
+        databaseURL: "https://mango-supply-chain-default-rtdb.firebaseio.com",
+        projectId: "mango-supply-chain",
+        storageBucket: "mango-supply-chain.appspot.com",
+        messagingSenderId: "104511646099",
+        appId: "1:104511646099:web:22b2cc79b554f979d5a066"
+        };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Reference to the 'User' database
+const userRef = firebase.database().ref('User');
+
+function maskPassword(password) {
+            return '*'.repeat(password.length);
+        }
+
+// Fetch data and display in a table
+userRef.once('value', (snapshot) => {
+    const data = snapshot.val();
+    const tableBody = document.getElementById('userTableBody');
+
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+            const user = data[key];
+            const row = tableBody.insertRow();
+            row.insertCell(0).textContent = user.firstname;
+            row.insertCell(1).textContent = user.lastname;
+            row.insertCell(2).textContent = user.age;
+            row.insertCell(3).textContent = user.birthday;
+            row.insertCell(4).textContent = user.gender;
+            row.insertCell(5).textContent = user.phonenumber;
+            row.insertCell(6).textContent = user.email;
+            row.insertCell(7).textContent = maskPassword(user.password);
+        }
+    }
+});
+
+</script>
+
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="images/Mangrowth2.png" alt="">
+            </div>
+
+            <span class="logo_name">Mangrowth</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="index.html">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dashboard</span>
+                </a></li>
+                <li><a href="content.html">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Content</span>
+                </a></li>
+                
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="../login.html">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name" >Logout</span>
+                </a></li>
+
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+           
+            
+            <img src="images/profile.jpg" alt="">
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Dashboard</span>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <i class="uil uil-dollar-alt"></i>
+                        <span class="text">Total Revenue</span>
+                        <span class="number">50,120</span>
+                    </div>
+                    <div class="box box2">
+                        <i class="uil uil-box"></i>
+                        <span class="text">Total Products Sold</span>
+                        <span class="number">20,120</span>
+                    </div>
+                    <div class="box box3">
+                        <i class="uil uil-user-circle"></i>
+                        <span class="text">Total Users</span>
+                        <span class="number">4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-user-circle"></i>
+                    <span class="text">User Information</span>
+                </div>
+
+                <div class="activity-data">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Age</th>
+                                <th>Birthday</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                                <th>Email Address</th>
+                                <th>Password</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js"></script>
+
+    <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyCcSJ3pdn5j_Ix-Vo4l6TVJg5MncrXgjLM",
+          authDomain: "mango-supply-chain.firebaseapp.com",
+          databaseURL: "https://mango-supply-chain-default-rtdb.firebaseio.com",
+          projectId: "mango-supply-chain",
+          storageBucket: "mango-supply-chain.appspot.com",
+          messagingSenderId: "104511646099",
+          appId: "1:104511646099:web:22b2cc79b554f979d5a066"
+        };
+
+    
+        firebase.initializeApp(firebaseConfig);
+            document.addEventListener("DOMContentLoaded", function () {
+                const db = firebase.database();
+
+                $("#addData").click(function () {
+                    var prodname = $("#prodname").val();
+                    var prodprice = $("#prodprice").val();
+                    var prodimg = $("#prodimg").val();
+    
+                    db.ref("Products/" + prodname).set({
+                        productName: prodname,
+                        productPrice: prodprice,
+                        productImage: prodimg,
+                    })
+                        .then(() => {
+                            console.log("Data successfully written!");
+                            location.reload();
+                        })
+                        .catch((error) => {
+                            console.error("Error writing data: ", error);
+                        });
+                });
+    
+              
+            });
+
+
+            const prodRef = firebase.database().ref('Products');
+            prodRef.once('value', (snapshot) => {
+                const data = snapshot.val();
+                const tableBody = document.getElementById('prodTableBody');
+
+                for (const key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        const product = data[key];
+                        const row = tableBody.insertRow();
+                        row.insertCell(0).textContent = product.productName; 
+                        row.insertCell(1).textContent = product.productPrice; 
+                        row.insertCell(2).textContent = product.productImage;
+                    }
+                }
+            });
+        </script>
+
+
+    <title>Admin Dashboard Panel</title> 
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="images/Mangrowth2.png" alt="">
+            </div>
+
+            <span class="logo_name">Mangrowth</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="index.html">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dashboard</span>
+                </a></li>
+                <li><a href="content.html">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Content</span>
+                </a></li>
+                
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="../login.html">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Logout</span>
+                </a></li>
+
+        
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            
+            
+            <img src="images/profile.jpg" alt="">
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-box"></i>
+                    <span class="text">Add Product</span>
+                </div>
+
+                <div class="wrapper">
+                    <div class="input-box">
+                      <input type="text" id="prodname" placeholder="Product Name">
+                    </div>
+                    
+                    <div class="input-box">
+                    <input type="text" id="prodprice" placeholder="Price">
+                    </div>
+                        
+                    <div class="input-box">
+                      <label for="prodimg">Select an image for the product:<br></label>
+                      <input type="file" id="prodimg" placeholder="Product Image">
+                    </div>
+                     <button class="btn" id="addData"> Add Product </button>
+                        
+            </div>
+
+            </div>
+
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-user-circle"></i>
+                    <span class="text">User Information</span>
+                </div>
+    
+                <div class="activity-data">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Price (₱)</th>
+                                <th>Image</th>
+                            </tr>
+                        </thead>
+                        <tbody id="prodTableBody">
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        
+       
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
